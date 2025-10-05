@@ -13,6 +13,29 @@
         <div class="book-list" id="book-list">
             <!-- Book items will be dynamically inserted here -->
         </div>
-        <button id="add-book-btn">Add Book</button>
+        <dialog id="add-book-dialog">
+            <form id="add-book-form" method="dialog">
+                <div class="form-element">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-element">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-element">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages" required>
+                </div>
+                <div class="form-element">
+                    <label for="read">Read</label>
+                    <input type="checkbox" id="read" name="read">
+                </div>
+                <button type="submit" id="submit-book-btn">Add Book</button>
+                <button type="button" class="close" id="close-book-dialog-btn">Cancel</button>
+            </form>
+        </dialog>
+        <button class="open" id="add-book-btn">Add Book</button>
+    </div>
 </body>
 </html>
