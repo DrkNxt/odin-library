@@ -5,37 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <title>Library</title>
 </head>
 <body>
     <div class="container">
-        <h1>Library</h1>
+        <h1><span class="iconify clickable" data-icon="mdi-bookshelf"></span>Library</h1>
         <div class="book-list" id="book-list">
             <!-- Book items will be dynamically inserted here -->
         </div>
-        <dialog id="add-book-dialog">
+        <dialog id="add-book-dialog" closedby="any">
             <form id="add-book-form" method="dialog">
-                <div class="form-element">
+                <div class="form-text">
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" required>
                 </div>
-                <div class="form-element">
+                <div class="form-text">
                     <label for="author">Author</label>
                     <input type="text" id="author" name="author" required>
                 </div>
-                <div class="form-element">
+                <div class="form-text">
                     <label for="pages">Pages</label>
                     <input type="number" id="pages" name="pages" required>
                 </div>
-                <div class="form-element">
+                <div class="form-check">
                     <label for="read">Read</label>
                     <input type="checkbox" id="read" name="read">
                 </div>
-                <button type="submit" id="submit-book-btn">Add Book</button>
-                <button type="button" class="close" id="close-book-dialog-btn">Cancel</button>
+                <div class="form-buttons">
+                    <button type="submit" class="open" id="submit-book-btn">Confirm</button>
+                    <button type="button" class="remove" id="close-book-dialog-btn">Cancel</button>
+                </div>
             </form>
         </dialog>
-        <button class="open" id="add-book-btn">Add Book</button>
+        <button class="open center" id="add-book-btn">Add Book</button>
     </div>
 </body>
 </html>

@@ -36,7 +36,7 @@ function displayAllBooks() {
     }
 }
 
-// Display book with the given id
+// Create display card for book with the given id
 function displayBook(id) {
     let book = findBookInLibrary(id);
     if (book === null) {
@@ -47,21 +47,48 @@ function displayBook(id) {
     displayBook.id = book.id;
     bookList.appendChild(displayBook);
 
+    // Title div
     let title = document.createElement("div");
     title.textContent = book.title;
     title.classList.add("title");
     displayBook.appendChild(title);
 
-    let author = document.createElement("div");
+    // Author div
+    let authorContainer = document.createElement("div");
+    authorContainer.classList.add("author-container");
+    displayBook.appendChild(authorContainer);
+
+    let authorIcon = document.createElement("span");
+    authorIcon.classList.add("iconify");
+    authorIcon.dataset.icon = "mdi-school";
+    authorContainer.appendChild(authorIcon);
+
+    let author = document.createElement("span");
     author.textContent = book.author;
     author.classList.add("author");
-    displayBook.appendChild(author);
+    authorContainer.appendChild(author);
 
-    let pages = document.createElement("div");
+    // Page count div
+    let pagesContainer = document.createElement("div");
+    pagesContainer.classList.add("pagess-container");
+    displayBook.appendChild(pagesContainer);
+
+    let pagesIcon = document.createElement("span");
+    pagesIcon.classList.add("iconify");
+    pagesIcon.dataset.icon = "mdi-book-open-page-variant";
+    pagesContainer.appendChild(pagesIcon);
+
+    let pages = document.createElement("span");
     pages.textContent = book.pages;
     pages.classList.add("pages");
-    displayBook.appendChild(pages);
+    pagesContainer.appendChild(pages);
 
+    // Button container
+    let buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+    displayBook.appendChild(buttonContainer);
+
+    // Read button
     let readButton = document.createElement("button");
     if (book.read) {
         readButton.textContent = "Read";
@@ -70,12 +97,13 @@ function displayBook(id) {
         readButton.textContent = "Not read";
         readButton.classList.add("not-read");
     }
-    displayBook.appendChild(readButton);
+    buttonContainer.appendChild(readButton);
 
+    // Remove button
     let removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
     removeButton.classList.add("remove");
-    displayBook.appendChild(removeButton);
+    buttonContainer.appendChild(removeButton);
 
     // Event Listener for read and remove button
     readButton.addEventListener("click", e => {
@@ -159,15 +187,19 @@ addBookButton.addEventListener("click", e => {
 })
 
 closeBookDialogButton.addEventListener("click", e => {
+    formTitle.value = "";
+    formAuthor.value = "";
+    formPages.value = "";
+    formRead.checked = false;
     addBookDialog.close();
 })
 
 addBookForm.addEventListener("submit", function(e) {
-  e.preventDefault();
-  addBookToLibrary(formTitle.value, formAuthor.value, parseInt(formPages.value), formRead.checked);
-  formTitle.value = "";
-  formAuthor.value = "";
-  formPages.value = "";
-  formRead.checked = false;
-  addBookDialog.close();
+    e.preventDefault();
+    addBookToLibrary(formTitle.value, formAuthor.value, parseInt(formPages.value), formRead.checked);
+    formTitle.value = "";
+    formAuthor.value = "";
+    formPages.value = "";
+    formRead.checked = false;
+    addBookDialog.close();
 })
