@@ -9,36 +9,38 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="container">
-        <h1><span class="iconify clickable" data-icon="mdi-bookshelf"></span>Library</h1>
-        <div class="book-list" id="book-list">
-            <!-- Book items will be dynamically inserted here -->
+    <div class="margin">
+        <div class="container">
+            <h1><span class="iconify clickable" data-icon="mdi-bookshelf"></span>Library</h1>
+            <div class="book-list" id="book-list">
+                <!-- Book items will be dynamically inserted here -->
+            </div>
+            <dialog id="add-book-dialog" closedby="any">
+                <form id="add-book-form" method="dialog">
+                    <div class="form-text">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-text">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" required>
+                    </div>
+                    <div class="form-text">
+                        <label for="pages">Pages</label>
+                        <input type="number" id="pages" name="pages" required>
+                    </div>
+                    <div class="form-check">
+                        <label for="read">Read</label>
+                        <input type="checkbox" id="read" name="read">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="open" id="submit-book-btn">Confirm</button>
+                        <button type="button" class="remove" id="close-book-dialog-btn">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+            <button class="open center" id="add-book-btn">Add Book</button>
         </div>
-        <dialog id="add-book-dialog" closedby="any">
-            <form id="add-book-form" method="dialog">
-                <div class="form-text">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div class="form-text">
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author" required>
-                </div>
-                <div class="form-text">
-                    <label for="pages">Pages</label>
-                    <input type="number" id="pages" name="pages" required>
-                </div>
-                <div class="form-check">
-                    <label for="read">Read</label>
-                    <input type="checkbox" id="read" name="read">
-                </div>
-                <div class="form-buttons">
-                    <button type="submit" class="open" id="submit-book-btn">Confirm</button>
-                    <button type="button" class="remove" id="close-book-dialog-btn">Cancel</button>
-                </div>
-            </form>
-        </dialog>
-        <button class="open center" id="add-book-btn">Add Book</button>
     </div>
 </body>
 </html>
