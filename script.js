@@ -11,15 +11,14 @@ const formRead = document.querySelector("#read");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    if (!new.target) {
-        throw Error("Must use the 'new' operator to call a constructor");
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
     }
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
 }
 
 // Add book to library and update display
@@ -70,7 +69,7 @@ function displayBook(id) {
 
     // Page count div
     let pagesContainer = document.createElement("div");
-    pagesContainer.classList.add("pagess-container");
+    pagesContainer.classList.add("pages-container");
     displayBook.appendChild(pagesContainer);
 
     let pagesIcon = document.createElement("span");
